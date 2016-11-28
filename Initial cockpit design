@@ -1,0 +1,20 @@
+  void setup ()
+  {
+    size(1000,600);
+    
+    
+  }
+  
+  void draw()
+  {
+
+    line(0, 600, 400, 400); //bottom left line
+    line(1000, 600, 600, 400);  //bottom right line
+    line(400,400,600,400); //bottom horizontal
+    line(200, 0, 400,400); //top to bottom left
+    line(800, 0, 600,400); //top to bottom right
+    line(0,300, 300,200); //diagonal left
+    line(1000,300, 700,200); //diagonal right
+    line(300,200, 700,200); //top horizontal
+    
+  }
