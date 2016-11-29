@@ -1,0 +1,51 @@
+  cockpit b;
+  
+  int xspacing = 16;  
+  int w;              // Width of wave
+
+  float theta = 0; 
+  float amplitude = 75.0;  // Height of wave
+  float period = 200;  // How many pixels before the wave repeats
+  float dx;  
+  float[] yvalues;  // Using an array to store height values for wave
+
+void setup() {
+  
+  b = new cockpit();
+  size(1000, 600);
+  w = 300;
+  dx = (TWO_PI / period) * xspacing;
+  yvalues = new float[w/xspacing];  
+}
+
+void draw() {
+  background(255);
+  
+  b.display();
+  calcWave();
+  renderWave();
+}
+
+void calcWave() {
+  // Increment theta
+  theta += 0.02;
+
+  // For every x value, calculate a y value with sine function
+  float x = theta;
+  for (int i = 0; i < yvalues.length; i++) {
+    yvalues[i] = sin(x)*amplitude;
+    x+=dx;
+  }
+}
+
+void renderWave() {
+  
+  translate(360,100);
+  noStroke();
+  fill(255);
+  // A simple way to draw the wave with an ellipse at each location
+  for (int x = 0; x < yvalues.length; x++) {
+    ellipse(x*xspacing, height/2+yvalues[x], 16, 16);
+  }
+}
+ 
