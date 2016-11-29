@@ -1,0 +1,31 @@
+class star
+{
+  float x;
+  float y;
+  float z;
+  
+  
+  star(){
+    x = random(0,width);
+    y= random(0,height);
+    z= random(0, width);
+  }
+  
+    void update()
+    {
+      
+    }
+    
+    
+   void show()
+    {
+      pushMatrix();
+      fill(255);
+      noStroke();
+      ellipse(x,y,8,8);
+      popMatrix();
+      
+    }
+     
+  
+}
