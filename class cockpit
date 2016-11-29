@@ -1,0 +1,24 @@
+  class cockpit
+  {
+   
+  
+  void display()
+  {
+    pushMatrix();
+    stroke(255);
+    line(200, 0, 400,400); //top to bottom left
+    line(800, 0, 600,400); //top to bottom right
+    line(300,200, 700,200); //top horizontal
+    
+    fill(175, 98, 98);
+    quad(0,600, 500,500,350,300,0,400);
+    fill(175, 98, 98);
+    quad(1000,600,500 ,500,650,300,1000,400);
+    stroke(0);
+    fill(96, 53, 53);
+    rect(350,300, 300,200);
+    popMatrix();
+    
+    
+    }
+  }
