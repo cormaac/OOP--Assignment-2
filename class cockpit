@@ -1,0 +1,22 @@
+  class cockpit
+  {
+   
+  
+  void display()
+  {
+
+    line(200, 0, 400,400); //top to bottom left
+    line(800, 0, 600,400); //top to bottom right
+    line(300,200, 700,200); //top horizontal
+    
+    fill(153);
+    quad(0,600, 500,500,350,300,0,400);
+    fill(153);
+    quad(1000,600,500 ,500,650,300,1000,400);
+    noStroke();
+    fill(0);
+    rect(350,300, 300,200);
+    
+    
+    }
+  }
