@@ -1,6 +1,6 @@
   cockpit b;
   sine s;
-  star[] stars = new star[100];
+  star[] stars = new star[500];
 
   
   int xspacing = 16;   // How far apart should each horizontal location be spaced
@@ -13,11 +13,10 @@
   float[] yvalues;  // Using an array to store height values for the wave
   
   
+  float speed;
   
   
-    
-
-void setup() {
+  void setup() {
   
   for (int i=0; i< stars.length; i++)
   {
@@ -37,16 +36,21 @@ void setup() {
 }
 
 void draw() {
+  
+  speed = map(mouseX, 0, width, 0,20);
   background(0);
   b.display();
   s.display();
   calcWave();
   renderWave();
+  pushMatrix();
+  translate(width/2, height/2);
    for (int i=0; i< stars.length; i++)
   {
-   // stars[i].update();
+    stars[i].update();
     stars[i].show();
   }
+  popMatrix();
   
 }
 
