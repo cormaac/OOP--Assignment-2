@@ -1,29 +1,53 @@
   cockpit b;
-  
-  int xspacing = 16;  
-  int w;              // Width of wave
+  sine s;
+  star[] stars = new star[100];
 
-  float theta = 0; 
+  
+  int xspacing = 16;   // How far apart should each horizontal location be spaced
+  int w;              // Width of entire wave
+
+  float theta = 0;  // Start angle at 0
   float amplitude = 75.0;  // Height of wave
   float period = 200;  // How many pixels before the wave repeats
-  float dx;  
-  float[] yvalues;  // Using an array to store height values for wave
+  float dx;  // Value for incrementing X, a function of period and xspacing
+  float[] yvalues;  // Using an array to store height values for the wave
+  
+  
+  
+  
+    
 
 void setup() {
   
+  for (int i=0; i< stars.length; i++)
+  {
+    stars[i] = new star();
+  }
+  
+  
+  
   b = new cockpit();
+  s = new sine();
+  
   size(1000, 600);
   w = 300;
   dx = (TWO_PI / period) * xspacing;
-  yvalues = new float[w/xspacing];  
+  yvalues = new float[w/xspacing];
+  
 }
 
 void draw() {
-  background(255);
-  
+  background(0);
   b.display();
+  s.display();
   calcWave();
   renderWave();
+   for (int i=0; i< stars.length; i++)
+  {
+   // stars[i].update();
+    stars[i].show();
+  }
+  
 }
 
 void calcWave() {
@@ -39,13 +63,14 @@ void calcWave() {
 }
 
 void renderWave() {
-  
+  pushMatrix();
   translate(360,100);
   noStroke();
-  fill(255);
+  fill(255,0,0);
   // A simple way to draw the wave with an ellipse at each location
   for (int x = 0; x < yvalues.length; x++) {
     ellipse(x*xspacing, height/2+yvalues[x], 16, 16);
   }
+  popMatrix();
 }
  
